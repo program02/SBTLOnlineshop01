@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr th:each="p:${addtocartlist}">
+			<td th:text="${p.id}"></td>
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.brand}"></td>
+			<td th:text="${p.price}"></td>
+			<td th:text="${p.edate}"></td>
+			<td th:text="${p.stock}"></td>
+			<td th:text="${p.category}"></td>
+			<td th:text="${p.imgurl1}"></td>
+			<td>
+				<form action="removecartitem">
+					<input hidden='true' type="text" name="id" th:text="${p.id}" />
+					 <input hidden='true' type="text" name="name" th:text="${p.name}" /> 
+					 <input type="submit" value="Remove"/>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<form action='shop'>
+		<input type="submit" value="Continue to shop" />
+	</form>
+</body>
+</html>

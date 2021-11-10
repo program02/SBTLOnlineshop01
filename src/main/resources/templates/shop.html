@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="'Products in Cart: ' +${addtocartsize}"></p>
+	<form action='addtocartpage'>
+		<input type="submit" value="Show Cart" />
+	</form>
+
+	<table>
+		<tr th:each="p:${products}">
+			<td th:text="${p.id}"></td>
+			<td th:text="${p.name}"></td>
+			<td th:text="${p.brand}"></td>
+			<td th:text="${p.price}"></td>
+			<td th:text="${p.edate}"></td>
+			<td th:text="${p.stock}"></td>
+			<td th:text="${p.category}"></td>
+			<td><img th:src="${p.imgurl1}" th:width="50px" th:height="50px" th:alt="laptopimg"/></td>
+			<td>
+				<form action='addtocart'>
+					<input type="hidden" name="id" th:value="${p.id}" /> <input
+						type="hidden" name="name" th:value="${p.name}" /> <input
+						type="hidden" name="email" th:value="${p.brand}" /> <input
+						type="hidden" name="round" th:value="${p.price}" /> <input
+						type="submit" value="Add To Cart" />
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
